@@ -48,7 +48,7 @@ interface IBaseComponentProps extends IStateWithRecompose {
 /* tslint:disable jsx-no-lambda */
 const BaseComponent = (props: IBaseComponentProps) => (
 	<div>
-		<h1>Tell Me About You With Recompose 😋</h1>
+		<h1>Tell Me About Yourself With Recompose 😋</h1>
 		<div>{props.name}</div>
 		<input
 			type="text"
