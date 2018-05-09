@@ -6,6 +6,11 @@ interface IStateWithRecompose {
 	name: string;
 }
 
+interface IStateUpdatePayload {
+	name?: string;
+	hobby?: string;
+}
+
 const Enhancer = compose(
 	withStateHandlers(
 		({ name = 'unknown', hobby = '' }: IStateWithRecompose) => ({
@@ -13,7 +18,7 @@ const Enhancer = compose(
 			name
 		}),
 		{
-			updateState: (state: IStateWithRecompose) => (value: any) => {
+			updateState: (state: IStateWithRecompose) => (value: IStateUpdatePayload) => {
 				return { ...state, ...value };
 			}
 		}
@@ -34,11 +39,6 @@ const Enhancer = compose(
 		}
 	})
 );
-
-interface IStateUpdatePayload {
-	name?: string;
-	hobby?: string;
-}
 
 interface IBaseComponentProps extends IStateWithRecompose {
 	tellAboutMe: (props: IBaseComponentProps) => void;
